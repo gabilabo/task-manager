@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>My Planner</h1>
+    <p class="subtitle">Plan your day with clarity and focus.</p>
+
+    <form action="/add" method="post" onsubmit="setTimeout(() => this.reset(), 0);">
+        <input type="text" name="task" placeholder="Add a new item..." required>
+        <button type="submit">Create</button>
+    </form>
+
+    {% if error_message %}
+        <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+
+    {% if tasks %}
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <span>
+                        {% if task.done %}
+                            <span style="text-decoration: line-through; color: #94a3b8;">
+                                ✔ {{ task.name }}
+                            </span>
+                        {% else %}
+                            {{ task.name }}
+                        {% endif %}
+                    </span>
+
+                    <span>
+                        <a href="/done/{{ loop.index0 }}">Done</a>
+                        <a href="/delete/{{ loop.index0 }}">Remove</a>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="empty-message">Nothing here yet. Add your first item.</p>
+    {% endif %}
+
+    <p class="footer-text">Personal web project built with Python and Flask.</p>
+</div>
+
+</body>
+</html>
