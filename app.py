@@ -5,9 +5,11 @@ app = Flask(__name__)
 tasks = []
 error_message = ""
 
+
 @app.route("/")
 def index():
     return render_template("index.html", tasks=tasks, error_message=error_message)
+
 
 @app.route("/add", methods=["POST"])
 def add():
@@ -26,14 +28,20 @@ def add():
 
     return redirect("/")
 
+
 @app.route("/done/<int:id>")
 def done(id):
-    tasks[id]["done"] = True
+    if 0 <= id < len(tasks):
+        tasks[id]["done"] = True
     return redirect("/")
+
 
 @app.route("/delete/<int:id>")
 def delete(id):
-    tasks.pop(id)
+    if 0 <= id < len(tasks):
+        tasks.pop(id)
     return redirect("/")
 
-app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(debug=True)
