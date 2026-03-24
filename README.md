@@ -1,24 +1,24 @@
 # 📝 Task Manager (Flask)
 
-Application simple de gestion de tâches développée avec **Flask**.
-Ce projet permet d’ajouter, supprimer et marquer des tâches comme complétées via une interface web simple.
+Application web simple de gestion de tâches développée avec **Flask**.  
+Elle permet d’ajouter, supprimer et marquer des tâches comme complétées via une interface web légère.
 
 ---
 
 ## 🚀 Fonctionnalités
 
-* ➕ Ajouter une tâche
-* ✅ Marquer une tâche comme terminée
-* ❌ Supprimer une tâche
-* 🎨 Interface simple avec HTML/CSS
+- ➕ Ajouter une tâche  
+- ✅ Marquer une tâche comme terminée  
+- ❌ Supprimer une tâche  
+- 🎨 Interface simple avec HTML/CSS  
 
 ---
 
 ## 🛠️ Technologies utilisées
 
-* Python
-* Flask
-* HTML / CSS
+- Python  
+- Flask  
+- HTML / CSS  
 
 ---
 
@@ -27,6 +27,7 @@ Ce projet permet d’ajouter, supprimer et marquer des tâches comme complétée
 ```
 task-manager/
 │── app.py
+│── requirements.txt
 │── templates/
 │     └── index.html
 │── static/
@@ -35,7 +36,7 @@ task-manager/
 
 ---
 
-## ▶️ Lancer le projet en local
+## ▶️ Installation et exécution
 
 1. Cloner le repository :
 
@@ -47,7 +48,7 @@ cd task-manager
 2. Créer un environnement virtuel :
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate   # Linux / Mac
 venv\Scripts\activate      # Windows
 ```
@@ -55,7 +56,7 @@ venv\Scripts\activate      # Windows
 3. Installer les dépendances :
 
 ```bash
-pip install flask
+pip install -r requirements.txt
 ```
 
 4. Lancer l’application :
@@ -72,15 +73,28 @@ http://127.0.0.1:5000
 
 ---
 
+## ⚠️ Limites du projet
+
+Les tâches sont stockées en mémoire (liste Python).  
+Elles sont donc perdues à chaque redémarrage de l’application.
+
+👉 Une version avec base de données sera développée dans un prochain projet.
+
+---
+
 ## 🎯 Objectif du projet
 
-Ce projet a été réalisé dans le cadre de mon apprentissage en développement Python.
-L’objectif est de maîtriser les bases du développement web avec Flask et la gestion d’un projet complet.
+Ce projet a été réalisé dans le cadre de mon apprentissage du développement web avec Flask.  
+Il permet de comprendre les bases :
+
+- routes  
+- formulaires  
+- gestion des données  
+- structure d’une application web  
 
 ---
 
 ## 👨‍💻 Auteur
 
-Gabriel Santos
+Gabriel Santos  
 Étudiant en informatique – Université Lumière Lyon 2
-
